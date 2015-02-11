@@ -10,6 +10,14 @@ function init() {
      $('.screen').text(totalValue);
    });
 
+   $('#clearall').on('click', function () {
+     $('.screen').text("");
+   })
 
+   $('.keys').on('click', '.eval', function(){
+     var answer = eval($('.screen').text());
+     $('.screen').text(answer);
+   })
 
+   
 }
