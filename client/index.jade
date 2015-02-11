@@ -1,8 +1,39 @@
 doctype html
 html(lang='en')
   head
-    meta(charset='utf-8')
-    title Prototype
+      script(src='/vendor/jquery/dist/jquery.js')
+      script(src='/main.js')
+      link(rel='stylesheet', href='/style.css')
+    title Simple Calculator
   body
-    h1 Hello, World
-    script(src='/vendor/jquery/dist/jquery.js')
+      h1 Simple Calculator
+      #calculator
+        
+        .top
+          .screen 
+        
+        .keys
+          span 7
+          span 8
+          span 9
+          span.operators +
+          span 4
+          span 5
+          span 6
+          span.operators -
+          span 1
+          span 2
+          span 3
+          span.operators x
+          span 0
+          span .
+          span.eval =
+          span.operators /
+          span x^y
+          span +/-
+          span √
+          span#clearall AC 
+    
+
+    
+    
