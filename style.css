@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  background: radial-gradient(circle, #ffffff 20%, #cccccc);
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+#calculator {
+  width: 325px;
+  height: auto;
+  font: bold 14px Arial, sans-serif;
+  margin: 100px auto;
+  padding: 20px 20px 9px;
+  background: linear-gradient(#9dd2ea, #8bceec);
+  border-radius: 3px;
+  box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.screen {
+  height: 40px;
+  width: 273px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  line-height: 40px;
+  color: #ffff9b;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: right;
+  letter-spacing: 1px;
+}
+.keys,
+.top {
+  overflow: hidden;
+}
+.keys span,
+.top span.clear {
+  float: left;
+  positive: relative;
+  top: 0;
+  width: 63px;
+  height: 36px;
+  color: grey;
+  cursor: pointer;
+  background: #fbff9e;
+  border-radius: 3px;
+  margin: 0 7px 11px 0;
+  line-height: 36px;
+  text-align: center;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition: all 0.2s ease;
+}
+.keys span.operators {
+  background: #f2c4c4;
+  margin-right: 0;
+}
+.keys span.eval {
+  background: #c7ffb7;
+  box-shadow: 0px 4px #9da853;
+  color: #888e5f;
+}
+.top span.clear {
+  background: #ff9fa8;
+  box-shadow: 0px 4px #ff7c87;
+  color: white;
+}
+.keys span:hover {
+  background: #9c89f6;
+  box-shadow: 0px 4px #6b54d3;
+  color: white;
+}
+.keys span.eval:hover {
+  background: #c7ffb7;
+  box-shadow: 0px 4px #ff9fa8;
+  color: #ffffff;
+}
+.top span.clear:hover {
+  background: #f68991;
+  box-shadow: 0px 4px #d3545d;
+  color: white;
+}
+.keys span:active {
+  box-shadow: 0px 0px #6b54d3;
+  top: 4px;
+}
+.keys span.eval:active {
+  box-shadow: 0px 0px #717a33;
+  top: 4px;
+}
+.top span.clear:active {
+  top: 4px;
+  box-shadow: 0px 0px #d3545d;
+}
