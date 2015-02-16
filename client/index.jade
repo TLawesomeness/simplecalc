@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Simple Calculator
+    link(rel='stylesheet', href='/style.css')
+  body
+    h1 Simple Calculator
+      #calculator
+        .top
+          .screen
+        
+        .keys
+          span.button 7
+          span.button 8
+          span.button 9
+          span.operators.button +
+          span.button 4
+          span.button 5
+          span.button 6
+          span.operators.button -
+          span.button 1
+          span.button 2
+          span.button 3
+          span.operators.button *
+          span.button 0
+          span.button .
+          span.eval =
+          span.operators.button /
+          span.exponent.button ^
+          span.flipsign +/-
+          span.sqrt √
+          span#clearall AC
+        
+    script(src='/vendor/jquery/dist/jquery.js')
+    script(src='/main.js')
