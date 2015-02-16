@@ -2,56 +2,37 @@
 $(document).ready(init);
 
 function init() {
-  var NumLength = function(number) {
-      if (number.length > 9) {
-          total.text(number.substr(number.length - 9,9));
-            if (number.length > 15) {
-              number = '';
-              total.text('Err');
-            }
-        }
-    };
-  var number = '';
-    var newnumber = '';
-    var operator = '';
-    var total = $('.screen');
-    total.text('');
+  $('.keys').on("click", ".button", function() {
+    //  debugger;
+    var clickValue = $(this).text();
+    var screenValue = $('.screen').text();
+    var totalValue = screenValue + clickValue;
+    $('.screen').text(totalValue);
+  });
 
+  $('#clearall').on('click', function () {
+    $('.screen').text("");
+  })
 
-    $('.keys').not('#clearall').click(function() {
-    number += $(this).text();
-    total.text(number);
-    NumLength(number);
-    });
-
-    $('.operators').not('#equals').click(function() {
-    operator = $(this).text();
-    newnumber = number;
-    number = '';
-    total.text('0');
-    });
-
-    $('#clearall').click(function() {
-    number = '';
-    total.text('0');
-    if ($(this).attr('id') === 'clearall') {
-      newnumber = '';
+  $('.keys').on('click', '.eval', function() {
+    if ($('.screen').text().match(/\^/g)) {
+      var pow = $('.screen').text().split("^").map(function(e) { return parseInt(e) ; } );
+       $('.screen').text(Math.pow(pow[0], pow[1]));
+    } else {
+      var answer = eval($('.screen').text());
+      $('.screen').text(answer);
     }
-    });
+  })
 
-    $('.keys').click(function() {
-    if (operator === '+') {
-      number = (parseInt(number, 10) + parseInt(newnumber, 10)).toString(10);
-    } else if (operator === '-') {
-      number = (parseInt(newnumber, 10) - parseInt(number, 10)).toString(10);
-    } else if (operator === '/') {
-      number = (parseInt(newnumber, 10) / parseInt(number, 10)).toString(10);
-    } else if (operator === 'x') {
-      number = (parseInt(newnumber, 10) * parseInt(number, 10)).toString(10);
-    }
-    total.text(number);
-    NumLength(number);
-    number = '';
-    newnumber = '';
-    });
+  $('.keys').on('click', '.flipsign', function () {
+    var answer = eval($('.screen').text());
+    var flipsign = answer * -1;
+    $('.screen').text(flipsign);
+  })
+
+  $('.keys').on('click', '.sqrt', function() {
+    var answer = eval($('.screen').text());
+    var sqrt = Math.sqrt(answer);
+    $('.screen').text(sqrt);
+  })
 }
