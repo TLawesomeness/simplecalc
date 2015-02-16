@@ -9,12 +9,10 @@ var paths = {
   jadesrc: ['./client/**/*.jade'],
   lesssrc: ['./client/**/*.less'],
   codesrc: ['./client/**/*.js', './server/**/*.js'],
-
-  clntsrc: ['./client/**/*.js'],
+  clientsrc: ['./client/**/*.js', './client/**/*.mp3', './client/**/*.jpg', './client/**/*.wav', './client/**/*.png'],
   jadedst: './public',
   lessdst: './public',
-  codedst: './public'
-
+  clientdst: './public'
 };
 
 gulp.task('build', ['jade', 'less', 'lint', 'jscs', 'copy']);
@@ -30,6 +28,8 @@ gulp.task('jade', function() {
 gulp.task('less', function() {
   gulp.src(paths.lesssrc)
     .pipe(less())
+    .on('error', console.error.bind(console))
+    .pipe(gulp.dest(paths.lessdst));
 });
 
 gulp.task('lint', function() {
@@ -50,7 +50,6 @@ gulp.task('jscs', function() {
 gulp.task('copy', function() {
   gulp.src(paths.clientsrc)
     .pipe(copy(paths.clientdst, {prefix:1}));
-
 });
 
 gulp.task('watch', function() {
